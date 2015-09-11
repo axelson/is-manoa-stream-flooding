@@ -5,9 +5,11 @@ var WebpackNotifierPlugin = require('webpack-notifier');
 
 var config = module.exports = {
   context: __dirname,
-  entry: {
-    index: './app/index.jsx',
-  },
+  entry: [
+    'webpack/hot/dev-server',
+    'webpack/hot/only-dev-server',
+    './app/index.jsx',
+  ],
 };
 
 config.cache = true;

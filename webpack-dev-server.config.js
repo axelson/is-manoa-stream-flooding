@@ -2,6 +2,8 @@ var WebpackDevServer = require("webpack-dev-server");
 var webpack = require("webpack");
 var webpackConfig = require('./webpack.config.js');
 
+webpackConfig.plugins.push(new webpack.HotModuleReplacementPlugin());
+
 var compiler = webpack(webpackConfig);
 var server = new WebpackDevServer(compiler, {
   contentBase: webpackConfig.output.path,
