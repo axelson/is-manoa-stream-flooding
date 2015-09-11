@@ -1,0 +1,26 @@
+{
+  "name": "is-manoa-stream-flooding",
+  "version": "0.0.1",
+  "description": "Webapp to tell you if manoa stream is flooding",
+  "author": "Jason Axelson <jason.axelson@gmail.com>",
+  "scripts": {
+    "start": "node index.js",
+    "predeploy": "echo im about to deploy",
+    "postdeploy": "echo ive deployed",
+    "prepublish": "coffee --bare --compile --output lib/foo src/foo/*.coffee"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://is-manoa-stream-flooding.com"
+  },
+  "keywords": [
+    "visualization",
+    "d3"
+  ],
+  "dependencies": {
+  },
+  "devDependencies": {
+  },
+  "private": true,
+  "license": "MIT"
+}
