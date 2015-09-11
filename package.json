@@ -18,6 +18,7 @@
     "d3"
   ],
   "dependencies": {
+    "d3": "^3.5.6",
     "express": "^4.13.3",
     "flexboxgrid": "^6.2.0",
     "lodash": "^3.10.1",

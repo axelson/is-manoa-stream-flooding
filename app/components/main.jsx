@@ -6,6 +6,7 @@ let RaisedButton = mui.RaisedButton;
 let Dialog = mui.Dialog;
 let ThemeManager = new mui.Styles.ThemeManager();
 let Colors = mui.Styles.Colors;
+let Viz = require('./viz');
 
 let Main = React.createClass({
 
@@ -50,6 +51,10 @@ let Main = React.createClass({
 
         <RaisedButton label="Super Secret Password" primary={true} onTouchTap={this._handleTouchTap} />
 
+        <div>
+          Viz container
+          <Viz />
+        </div>
       </div>
     );
   },
