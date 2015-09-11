@@ -4,7 +4,7 @@
   "description": "Webapp to tell you if manoa stream is flooding",
   "author": "Jason Axelson <jason.axelson@gmail.com>",
   "scripts": {
-    "start": "node index.js",
+    "start": "node webpack-dev-server.config.js & node index.js",
     "predeploy": "echo im about to deploy",
     "postdeploy": "echo ive deployed",
     "prepublish": "coffee --bare --compile --output lib/foo src/foo/*.coffee"
@@ -18,8 +18,21 @@
     "d3"
   ],
   "dependencies": {
+    "express": "^4.13.3",
+    "flexboxgrid": "^6.2.0",
+    "lodash": "^3.10.1",
+    "material-ui": "^0.11.0",
+    "react": "^0.13.3",
+    "react-tap-event-plugin": "^0.1.7"
   },
   "devDependencies": {
+    "autoprefixer-loader": "^3.1.0",
+    "babel-core": "^5.8.24",
+    "babel-loader": "^5.3.2",
+    "react-hot-loader": "^1.3.0",
+    "webpack": "^1.12.1",
+    "webpack-dev-server": "^1.10.1",
+    "webpack-notifier": "^1.2.1"
   },
   "private": true,
   "license": "MIT"
