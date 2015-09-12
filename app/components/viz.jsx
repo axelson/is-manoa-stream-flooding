@@ -8,9 +8,10 @@ let StreamGauge = require('./StreamGauge');
 let Viz = React.createClass({
   getInitialState: function() {
     return {
-      currentStreamHeight: undefined,
+      currentStreamHeight: 0,
     };
   },
+
   componentDidMount() {
     let url = 'http://waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites=16241600&period=P1D&parameterCd=00065';
     $.get(url, (result) => {

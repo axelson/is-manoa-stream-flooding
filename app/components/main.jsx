@@ -30,7 +30,7 @@ let Main = React.createClass({
 
     let containerStyle = {
       textAlign: 'center',
-      paddingTop: '200px',
+      paddingTop: '20px',
     };
 
     let standardActions = [

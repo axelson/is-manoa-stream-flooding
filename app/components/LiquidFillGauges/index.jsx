@@ -6,8 +6,14 @@ let {
 } = require('./gaugeFunctions');
 
 let LiquidFillGauges = React.createClass({
+  getInitialState: function() {
+    return {
+      gauge2: undefined,
+    };
+  },
 
   componentDidMount() {
+    console.log('did mount');
     var gauge1 = loadLiquidFillGauge("fillgauge1", 55);
     var config1 = liquidFillGaugeDefaultSettings();
     config1.circleColor = "#FF7777";
@@ -17,7 +23,12 @@ let LiquidFillGauges = React.createClass({
     config1.circleThickness = 0.2;
     config1.textVertPosition = 0.2;
     config1.waveAnimateTime = 1000;
-    var gauge2 = loadLiquidFillGauge("fillgauge2", 28, config1);
+
+    var streamHeightPct = this.props.streamHeight / 11;
+    var gauge2 = loadLiquidFillGauge("fillgauge2", streamHeightPct, config1);
+    this.setState({
+      gauge2,
+    });
     var config2 = liquidFillGaugeDefaultSettings();
     config2.circleColor = "#D4AB6A";
     config2.textColor = "#553300";
@@ -29,6 +40,7 @@ let LiquidFillGauges = React.createClass({
     config2.waveAnimateTime = 2000;
     config2.waveHeight = 0.3;
     config2.waveCount = 1;
+
     var gauge3 = loadLiquidFillGauge("fillgauge3", 60.1, config2);
     var config3 = liquidFillGaugeDefaultSettings();
     config3.textVertPosition = 0.8;
@@ -38,6 +50,7 @@ let LiquidFillGauges = React.createClass({
     config3.waveOffset = 0.25;
     config3.valueCountUp = false;
     config3.displayPercent = false;
+
     var gauge4 = loadLiquidFillGauge("fillgauge4", 50, config3);
     var config4 = liquidFillGaugeDefaultSettings();
     config4.circleThickness = 0.15;
@@ -54,6 +67,7 @@ let LiquidFillGauges = React.createClass({
     config4.waveOffset = 0.25;
     config4.textSize = 0.75;
     config4.waveCount = 3;
+
     var gauge5 = loadLiquidFillGauge("fillgauge5", 60.44, config4);
     var config5 = liquidFillGaugeDefaultSettings();
     config5.circleThickness = 0.4;
@@ -71,6 +85,7 @@ let LiquidFillGauges = React.createClass({
     config5.minValue = 30;
     config5.maxValue = 150
     config5.displayPercent = false;
+
     var gauge6 = loadLiquidFillGauge("fillgauge6", 120, config5);
 
     function NewValue() {
@@ -83,6 +98,14 @@ let LiquidFillGauges = React.createClass({
   },
 
   render() {
+    console.log('render');
+    if (this.state.gauge2) {
+      var streamHeightPct = this.props.streamHeight / 11 * 100;
+      this.state.gauge2.update(streamHeightPct);
+    }
+    //this.state.gauge2.update(5);
+    //this.state.gauge2.update(5);
+
     return (
       <div>
         <svg id="fillgauge1" width="97%" height="250"></svg>
