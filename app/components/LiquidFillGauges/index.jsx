@@ -3,7 +3,7 @@ let React = require('react');
 let {
   liquidFillGaugeDefaultSettings,
   loadLiquidFillGauge,
-} = require('./liquidFillGaugeFunctions');
+} = require('./gaugeFunctions');
 
 let LiquidFillGauges = React.createClass({
 
