@@ -52,7 +52,10 @@ let Main = React.createClass({
         <RaisedButton label="Super Secret Password" primary={true} onTouchTap={this._handleTouchTap} />
 
         <div>
-          Viz container
+          <a href="http://waterdata.usgs.gov/nwis/uv?cb_00060=on&cb_00065=on&format=gif_default&site_no=16241600&period=&begin_date=2015-08-04&end_date=2015-09-04"
+             target="_blank">
+            Source Link
+          </a>
           <Viz />
         </div>
       </div>
