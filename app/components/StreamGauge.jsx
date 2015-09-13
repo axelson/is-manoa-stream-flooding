@@ -1,7 +1,7 @@
 let React = require('react');
 let mui = require('material-ui');
 
-let LiquidFillGauges = require('./LiquidFillGauges');
+let LiquidFillGauge = require('./LiquidFillGauge');
 
 let StreamGauge = React.createClass({
   render() {
@@ -14,7 +14,7 @@ let StreamGauge = React.createClass({
           Note: if the height hits 11 feet the water is hitting the bridge.
         </div>
         <div>
-          <LiquidFillGauges streamHeight={this.props.streamHeight} />
+          <LiquidFillGauge streamHeight={this.props.streamHeight} />
         </div>
       </div>
     );
