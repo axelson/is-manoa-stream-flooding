@@ -4,3 +4,10 @@ http://waterdata.usgs.gov/nwis/uv?cb_00060=on&cb_00065=on&format=gif_default&sit
 
 For those of you in Manoa that saw the flash flood,  this site has the data.  The HTDC office asks for automatic alerts when it reaches 8 feet.  At 11 ft its hitting the bridge. 
 # is-manoa-stream-flooding
+
+TODO
+====
+
+* Loading animation
+* line graph
+* animation/drawing of bridge
