@@ -1,4 +1,5 @@
 /** In this file, we create a React component which incorporates components provided by material-ui */
+require('assets/css/main.styl');
 
 let React = require('react');
 let mui = require('material-ui');

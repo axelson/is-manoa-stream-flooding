@@ -31,6 +31,7 @@ config.resolve = {
   // We may want to create aliases for all our bundles
   // http://webpack.github.io/docs/configuration.html#resolve-alias
   alias: {
+    assets: path.join(__dirname, 'app', 'assets'),
   },
 };
 
@@ -53,6 +54,7 @@ config.module = {
       exclude: commonExclude
     },
     { test: /\.css$/, loaders: ['style?sourceMap', 'css', autoprefixerLoader] },
+    { test: /\.styl$/, loaders: ['style?sourceMap', 'css', autoprefixerLoader, 'stylus'] },
     { test: /\.html$/, loader: 'raw-loader', exclude: commonExclude },
   ],
 };
