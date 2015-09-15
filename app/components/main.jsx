@@ -47,8 +47,7 @@ let Main = React.createClass({
           1-2-3-4-5
         </Dialog>
 
-        <h1>material-ui</h1>
-        <h2>example project</h2>
+        <h1>Is Manoa Stream Flooding?</h1>
 
         <RaisedButton label="Super Secret Password" primary={true} onTouchTap={this._handleTouchTap} />
 
