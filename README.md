@@ -12,5 +12,4 @@ TODO
 * line graph
 * animation/drawing of bridge
 * liquid fill gauge should be more rectangular (or look more like a stream/bridge)
-* Load css via webpack
 * load data in render instead of component did mount or whatever
