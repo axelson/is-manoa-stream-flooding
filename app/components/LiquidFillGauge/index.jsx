@@ -34,13 +34,9 @@ let LiquidFillGauges = React.createClass({
       var streamHeightPct = this._streamHeightPct();
       this.state.gauge.update(streamHeightPct);
     }
-    //this.state.gauge2.update(5);
-    //this.state.gauge2.update(5);
 
     return (
-      <div>
-        <svg id="fillgauge2" width="19%" height="200"></svg>
-      </div>
+      <svg id="fillgauge2" width="19%" height="200"></svg>
     );
   },
 
