@@ -8,8 +8,14 @@ For those of you in Manoa that saw the flash flood,  this site has the data.  Th
 TODO
 ====
 
+NEED TO FIX UP THE UPDATE FUNCTION SO IT IS STATELESS...
+
 * Loading animation
+    * React loader? https://github.com/quickleft/react-loader
 * line graph
 * animation/drawing of bridge
 * liquid fill gauge should be more rectangular (or look more like a stream/bridge)
 * load data in render instead of component did mount or whatever
+* able to deploy to heroku
+* ensure we have the destroy method: https://github.com/ugomeda/d3-liquid-fill-gauge/commit/ade264dbca18176bd97c0d84907b1205a5095ca6
+* Look into using: https://github.com/bgrsquared/d3-react-squared
