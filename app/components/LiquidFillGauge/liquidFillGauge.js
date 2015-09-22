@@ -120,7 +120,8 @@ let d3 = require('d3');
             var gaugeCircleY = d3.scale.linear().range([0, radius]).domain([0, radius]);
 
             // Scales for controlling the size of the clipping path.
-            var waveScaleX = d3.scale.linear().range([0, waveClipWidth]).domain([0, 1]);
+            // JAX: add some padding so we don't get flashes at edge of rectangle
+            var waveScaleX = d3.scale.linear().range([-5, waveClipWidth + 5]).domain([0, 1]);
             var waveScaleY = d3.scale.linear().range([0, waveHeight]).domain([0, 1]);
 
             // Scales for controlling the position of the clipping path.
@@ -152,15 +153,22 @@ let d3 = require('d3');
             }
 
             // Draw the outer circle.
-            var gaugeCircleArc = d3.svg.arc()
-                .startAngle(gaugeCircleX(0))
-                .endAngle(gaugeCircleX(1))
-                .outerRadius(gaugeCircleY(radius))
-                .innerRadius(gaugeCircleY(radius - circleThickness));
-            gaugeGroup.append("path")
-                .attr("d", gaugeCircleArc)
-                .style("fill", config.get("circleColor"))
-                .attr('transform', 'translate(' + radius + ',' + radius + ')');
+            // JAX: draw outside rectangle instead
+            //var gaugeCircleArc = d3.svg.arc()
+            //    .startAngle(gaugeCircleX(0))
+            //    .endAngle(gaugeCircleX(1))
+            //    .outerRadius(gaugeCircleY(radius))
+            //    .innerRadius(gaugeCircleY(radius - circleThickness));
+            //gaugeGroup.append("path")
+            //    .attr("d", gaugeCircleArc)
+            //    .style("fill", config.get("circleColor"))
+            //    .attr('transform', 'translate(' + radius + ',' + radius + ')');
+            gaugeGroup.append("rect")
+                .attr("x", 0)
+                .attr("y", 0)
+                .attr("width", radius*2)
+                .attr("height", radius*2)
+                .style("fill", '#E0E0E0');
 
             // Text where the wave does not overlap.
             var text1 = gaugeGroup.append("text")
@@ -192,10 +200,17 @@ let d3 = require('d3');
             // The inner circle with the clipping wave attached.
             var fillCircleGroup = gaugeGroup.append("g")
                 .attr("clip-path", "url(#" + clipId + ")");
-            fillCircleGroup.append("circle")
-                .attr("cx", radius)
-                .attr("cy", radius)
-                .attr("r", fillCircleRadius)
+            // JAX: Draw wave as a rectangle instead of a circle
+            //fillCircleGroup.append("circle")
+            //    .attr("cx", radius)
+            //    .attr("cy", radius)
+            //    .attr("r", fillCircleRadius)
+            //    .style("fill", config.get("waveColor"));
+            fillCircleGroup.append("rect")
+                .attr("width", radius*2)
+                .attr("height", radius*2)
+                .attr("x", 0)
+                .attr("y", 0)
                 .style("fill", config.get("waveColor"));
 
             // Text where the wave does overlap.
