@@ -14,10 +14,18 @@ let StreamGauge = React.createClass({
           Note: if the height hits 11 feet the water is hitting the bridge.
         </div>
         <div>
-          <LiquidFillGauge streamHeight={this.props.streamHeight} />
+          <LiquidFillGauge value={this._streamHeightPct()} />
         </div>
       </div>
     );
+  },
+
+  _streamHeightPct() {
+    if (this.props.streamHeight) {
+      return this.props.streamHeight / 11 * 100;
+    } else {
+      return 0;
+    }
   },
 });
 

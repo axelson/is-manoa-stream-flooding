@@ -1,49 +1,46 @@
 let React = require('react');
-
-let {
-  liquidFillGaugeDefaultSettings,
-  loadLiquidFillGauge,
-} = require('./gaugeFunctions');
+require('./liquidFillGauge');
 
 let LiquidFillGauges = React.createClass({
   getInitialState: function() {
     return {
-      gauge: undefined,
+      gauge: null,
     };
   },
 
   componentDidMount() {
-    var config1 = liquidFillGaugeDefaultSettings();
-    //config1.circleColor = "#FF7777";
-    //config1.textColor = "#FF4444";
-    //config1.waveTextColor = "#FFAAAA";
-    //config1.waveColor = "#FFDDDD";
-    config1.circleThickness = 0.1;
-    config1.textVertPosition = 0.8;
-    config1.waveAnimateTime = 1000;
+    var config = {
+      waveAnimateTime: 1000,
+      textVertPosition: 0.8,
+    };
 
-    var streamHeightPct = this._streamHeightPct();
-    var gauge = loadLiquidFillGauge("fillgauge2", streamHeightPct, config1);
+    var element = this.getDOMNode();
+    // Work around d3.liquidfillgauge bug where an initial value of 0 will
+    // cause there to be no wave at all
+    // https://github.com/ugomeda/d3-liquid-fill-gauge/issues/1
+    var gauge = d3.select(element).call(d3.liquidfillgauge, 20, config);
+    gauge.on("valueChanged")(this.props.value);
     this.setState({
       gauge,
     });
   },
 
+  componentWillUnmount() {
+    if (this.state.gauge) {
+      this.state.gauge.on("destroy");
+    }
+  },
+
   render() {
     if (this.state.gauge) {
-      var streamHeightPct = this._streamHeightPct();
-      this.state.gauge.update(streamHeightPct);
+      window.updateHeight = true;
+      this.state.gauge.on("valueChanged")(this.props.value);
     }
 
     return (
       <svg id="fillgauge2" width="19%" height="200"></svg>
     );
   },
-
-  _streamHeightPct() {
-    return this.props.streamHeight / 11 * 100;
-  },
-
 });
 
 module.exports = LiquidFillGauges;

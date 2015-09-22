@@ -3,6 +3,7 @@
  * Copyright (c) 2015, Curtis Bratton
  * All rights reserved.
  */
+let d3 = require('d3');
 (function(d3) {
     var idGenerator = (function() {
         var count = 0;
@@ -243,8 +244,8 @@
               }
 
               // Update the wave
-              toPercent = Math.max(config.get("minValue"), Math.min(config.get("maxValue"), to)) / config.get("maxValue");
-              fromPercent = Math.max(config.get("minValue"), Math.min(config.get("maxValue"), from)) / config.get("maxValue");
+              let toPercent = Math.max(config.get("minValue"), Math.min(config.get("maxValue"), to)) / config.get("maxValue");
+              let fromPercent = Math.max(config.get("minValue"), Math.min(config.get("maxValue"), from)) / config.get("maxValue");
 
               if (riseWave) {
                   waveGroup.attr('transform', 'translate(' + waveGroupXPosition + ',' + waveRiseScale(fromPercent) + ')')
